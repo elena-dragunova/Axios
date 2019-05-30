@@ -69,6 +69,8 @@
 </template>
 
 <script>
+  import axiosInstance from '../../axios-auth';
+
   export default {
     data () {
       return {
@@ -86,7 +88,7 @@
         const newHobby = {
           id: Math.random() * Math.random() * 1000,
           value: ''
-        }
+        };
         this.hobbyInputs.push(newHobby)
       },
       onDeleteHobby (id) {
@@ -101,8 +103,10 @@
           country: this.country,
           hobbies: this.hobbyInputs.map(hobby => hobby.value),
           terms: this.terms
-        }
-        console.log(formData)
+        };
+        axiosInstance.post('/users.json', formData)
+                .then(res => console.log(res))
+                .catch(error => console.log(error));
       }
     }
   }
