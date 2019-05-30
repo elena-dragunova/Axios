@@ -6,8 +6,8 @@ import router from './router'
 import store from './store'
 
 axios.defaults.baseURL = 'https://vue-course-update-fc49e.firebaseio.com';
-axios.defaults.headers.common['Authorization'] = 'some token';
-axios.defaults.headers.get['Accepts'] = 'application/json';
+// axios.defaults.headers.common['Authorization'] = 'some token';
+// axios.defaults.headers.get['Accepts'] = 'application/json';
 
 const reqInterceptor = axios.interceptors.request.use(config => {
   console.log('Request interceptor' + config);

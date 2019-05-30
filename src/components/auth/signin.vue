@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  export default {
+   export default {
     data () {
       return {
         email: '',
@@ -37,8 +37,8 @@
         const formData = {
           email: this.email,
           password: this.password,
-        }
-        console.log(formData)
+        };
+        this.$store.dispatch('login', {email: formData.email, password: formData.password, returnSecureToken: true})
       }
     }
   }
